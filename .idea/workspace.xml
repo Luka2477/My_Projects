@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Init Matador">
-      <change beforePath="$PROJECT_DIR$/.idea/My_Projects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/My_Projects.iml" afterDir="false" />
+    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Made every GUI a separate window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/Matador.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/Matador.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/src/gui/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/src/gui/LoadBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/LoadBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/src/gui/MakeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/MakeBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +73,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="Init Matador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Init Matador" />
+    <MESSAGE value="Made every GUI a separate window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made every GUI a separate window" />
   </component>
 </project>
