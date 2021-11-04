@@ -1,13 +1,15 @@
 package gui;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import storage.GlobalSettings;
 
 public class MainMenu extends Application {
 
@@ -40,18 +42,20 @@ public class MainMenu extends Application {
         pane.setVgap(10);
 
         Label lblHeader = new Label("Welcome to Matador");
-        lblHeader.setFont(new Font(40));
-        pane.add(lblHeader, 0, 0, 3, 1);
+        lblHeader.setFont(GlobalSettings.FONT_HEADER);
+        pane.add(lblHeader, 0, 0);
 
         Button btnMakeBoard = new Button("Make Board");
-        btnMakeBoard.setFont(new Font(10));
+        btnMakeBoard.setFont(GlobalSettings.FONT_BUTTON);
         btnMakeBoard.setOnAction(event -> this.onMakeBoardAction());
-        pane.add(btnMakeBoard, 1, 1);
+        GridPane.setHalignment(btnMakeBoard, HPos.CENTER);
+        pane.add(btnMakeBoard, 0, 1);
 
         Button btnLoadBoard = new Button("Load Board");
-        btnLoadBoard.setFont(new Font(10));
+        btnLoadBoard.setFont(GlobalSettings.FONT_BUTTON);
         btnLoadBoard.setOnAction(event -> this.onLoadBoardAction());
-        pane.add(btnLoadBoard, 1, 2);
+        GridPane.setHalignment(btnLoadBoard, HPos.CENTER);
+        pane.add(btnLoadBoard, 0, 2);
     }
 
     //------------------------------------------------
