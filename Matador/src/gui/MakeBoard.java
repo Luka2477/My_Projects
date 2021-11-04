@@ -12,6 +12,7 @@ public class MakeBoard extends Stage {
         this.setTitle("Matador - Make Board");
 
         GridPane pane = new GridPane();
+        pane.setPrefSize(1000, 1000);
         this.initContent(pane);
 
         Scene scene = new Scene(pane);

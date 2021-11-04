@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Added Application">
+    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Did some stuff">
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Chance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Chest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Jail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Property.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Train.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Matador/src/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Matador/src/gui/MakeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/MakeBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +92,14 @@
       <option name="presentableId" value="Default" />
       <updated>1636030740100</updated>
     </task>
+    <task id="LOCAL-00001" summary="Did some stuff">
+      <created>1636032093432</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636032093432</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +120,7 @@
     <MESSAGE value="Made every GUI a separate window" />
     <MESSAGE value="Added action handlers" />
     <MESSAGE value="Added Application" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Application" />
+    <MESSAGE value="Did some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Did some stuff" />
   </component>
 </project>
