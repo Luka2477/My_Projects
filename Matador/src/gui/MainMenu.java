@@ -23,6 +23,7 @@ public class MainMenu extends Application {
         stage.setScene(scene);
         stage.show();
 
+        this.stage = stage;
         this.makeBoard = new MakeBoard(stage);
         this.loadBoard = new LoadBoard(stage);
         this.game = new Game(stage);
@@ -30,6 +31,7 @@ public class MainMenu extends Application {
 
     //------------------------------------------
 
+    private Stage stage;
     private MakeBoard makeBoard;
     private LoadBoard loadBoard;
     private Game game;
@@ -45,7 +47,7 @@ public class MainMenu extends Application {
         lblHeader.setFont(GlobalSettings.FONT_HEADER);
         pane.add(lblHeader, 0, 0);
 
-        Button btnMakeBoard = new Button("Make Board");
+        Button btnMakeBoard = new Button("Make/Change Board");
         btnMakeBoard.setFont(GlobalSettings.FONT_BUTTON);
         btnMakeBoard.setOnAction(event -> this.onMakeBoardAction());
         GridPane.setHalignment(btnMakeBoard, HPos.CENTER);
@@ -61,10 +63,14 @@ public class MainMenu extends Application {
     //------------------------------------------------
 
     private void onMakeBoardAction () {
+        this.stage.hide();
         this.makeBoard.showAndWait();
+        this.stage.show();
     }
 
     private void onLoadBoardAction () {
+        this.stage.hide();
         this.loadBoard.showAndWait();
+        this.stage.show();
     }
 }
