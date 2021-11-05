@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Added Application">
-      <change afterPath="$PROJECT_DIR$/Matador/src/storage/GlobalSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/gui/MainMenu.java" afterDir="false" />
-    </list>
+    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Added GlobalSettings.java which contains constants that define application settings" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,6 +90,7 @@
     <MESSAGE value="Made every GUI a separate window" />
     <MESSAGE value="Added action handlers" />
     <MESSAGE value="Added Application" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Application" />
+    <MESSAGE value="Added GlobalSettings.java which contains constants that define application settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added GlobalSettings.java which contains constants that define application settings" />
   </component>
 </project>
