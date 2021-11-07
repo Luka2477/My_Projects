@@ -104,7 +104,8 @@ public class Property extends Tile {
     //--------------------------------------------------------------------
 
     public boolean chargeRent (Player player) {
-        player.takeBalance(this.rent[this.houses + (this.hotel ? 1 : 0)]);
+        int rent = this.rent[this.houses + (this.hotel ? 1 : 0)];
+        player.takeBalance(rent);
 
         return player.getBalance() > 0;
     }

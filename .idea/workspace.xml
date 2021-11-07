@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Something">
-      <change afterPath="$PROJECT_DIR$/Matador/src/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Matador/src/model/tiles/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/Matador/src/model/tiles/Property.java" afterDir="false" />
     </list>
@@ -113,6 +112,7 @@
     <MESSAGE value="Added action handlers" />
     <MESSAGE value="Added Application" />
     <MESSAGE value="Did some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Did some stuff" />
+    <MESSAGE value="Something" />
+    <option name="LAST_COMMIT_MESSAGE" value="Something" />
   </component>
 </project>
