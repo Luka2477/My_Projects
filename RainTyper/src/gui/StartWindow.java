@@ -34,7 +34,7 @@ public class StartWindow extends Application {
         pane.setPadding(new Insets(10));
         pane.setVgap(10);
         pane.setHgap(10);
-        pane.setGridLinesVisible(true);
+        pane.setGridLinesVisible(false);
 
         Label lblDifficulty = new Label("Difficulty:");
         pane.add(lblDifficulty, 0, 0);

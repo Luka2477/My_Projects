@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Changed Property.java chargeRent method to contain rent as int variable">
+    <list default="true" id="d7c38e87-4743-45ea-b3e9-f2c7be817a64" name="Changes" comment="Init rain typer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RainTyper/RainTyper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RainTyper/RainTyper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RainTyper/src/application/model/Difficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainTyper/src/application/model/Difficulty.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RainTyper/src/gui/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainTyper/src/gui/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainTyper/src/gui/StartWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainTyper/src/gui/StartWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +50,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.25526643" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.App (1)">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
