@@ -1,6 +1,7 @@
 package gui;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -57,6 +58,8 @@ public class GUI extends Application {
         this.makeBranch(group, this.width / 2, this.height, stemWidth, stemLength, Math.PI / 2, iterations);
 
         pane.getChildren().add(group);
+
+        pane.setOnScroll(event -> handleScroll(event, group));
     }
 
     private void makeBranch (Group group, double x, double y, double branchWidth, double branchLength, double angle, int iterationsLeft) {
@@ -76,6 +79,10 @@ public class GUI extends Application {
             makeBranch(group, newX, newY, newBranchWidth, newBranchLength, newAngleLeft, iterationsLeft - 1);
             makeBranch(group, newX, newY, newBranchWidth, newBranchLength, newAngleRight, iterationsLeft - 1);
         }
+    }
+
+    private void handleScroll (Event event, Group group) {
+        // TODO
     }
 
 }
