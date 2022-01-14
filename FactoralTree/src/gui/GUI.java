@@ -1,12 +1,10 @@
 package gui;
 
 import javafx.application.Application;
-import javafx.event.Event;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
@@ -22,17 +20,23 @@ public class GUI extends Application {
         this.height = 600;
 
         stage.setTitle("Factorial Tree");
-        Pane pane = new Pane();
-        pane.setPrefSize(this.width, this.height);
+        PannableCanvas canvas = new PannableCanvas();
+        canvas.setPrefSize(this.width, this.height);
 
-        this.initTree(pane);
+        this.initTree(canvas);
 
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(canvas);
+
+        SceneGestures sceneGestures = new SceneGestures(canvas);
+        scene.addEventFilter( MouseEvent.MOUSE_PRESSED, sceneGestures.getOnMousePressedEventHandler());
+        scene.addEventFilter( MouseEvent.MOUSE_DRAGGED, sceneGestures.getOnMouseDraggedEventHandler());
+        scene.addEventFilter( ScrollEvent.ANY, sceneGestures.getOnScrollEventHandler());
+
         stage.setScene(scene);
         stage.show();
     }
 
-    private void initTree (Pane pane) {
+    private void initTree (PannableCanvas canvas) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("How many iterations (int): ");
@@ -59,7 +63,7 @@ public class GUI extends Application {
         Group group = new Group();
         this.makeBranch(group, this.width / 2, this.height, stemWidth, stemLength, Math.PI / 2, iterations);
 
-        pane.getChildren().add(group);
+        canvas.getChildren().add(group);
     }
 
     private void makeBranch (Group group, double x, double y, double branchWidth, double branchLength, double angle, int iterationsLeft) {

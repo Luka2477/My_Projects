@@ -33,8 +33,8 @@ public class SceneGestures {
 
         public void handle(MouseEvent event) {
 
-            // right mouse button => panning
-            if (!event.isSecondaryButtonDown())
+            // left mouse button => panning
+            if (!event.isPrimaryButtonDown())
                 return;
 
             sceneDragContext.mouseAnchorX = event.getSceneX();
@@ -50,8 +50,8 @@ public class SceneGestures {
     private EventHandler<MouseEvent> onMouseDraggedEventHandler = new EventHandler<>() {
         public void handle(MouseEvent event) {
 
-            // right mouse button => panning
-            if (!event.isSecondaryButtonDown())
+            // left mouse button => panning
+            if (!event.isPrimaryButtonDown())
                 return;
 
             canvas.setTranslateX(sceneDragContext.translateAnchorX + event.getSceneX() - sceneDragContext.mouseAnchorX);
