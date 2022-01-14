@@ -6,8 +6,7 @@ import javafx.scene.input.ScrollEvent;
 
 public class SceneGestures {
 
-    private static final double MAX_SCALE = 10.0d;
-    private static final double MIN_SCALE = .1d;
+    private static final double MIN_SCALE = 0.5d;
 
     private DragContext sceneDragContext = new DragContext();
 
@@ -79,7 +78,9 @@ public class SceneGestures {
             else
                 scale *= delta;
 
-            scale = clamp(scale, MIN_SCALE, MAX_SCALE);
+            if (Double.compare(scale, MIN_SCALE) < 0) {
+                scale = MIN_SCALE;
+            }
 
             double f = (scale / oldScale) - 1;
 
@@ -96,17 +97,5 @@ public class SceneGestures {
         }
 
     };
-
-
-    public static double clamp( double value, double min, double max) {
-
-        if( Double.compare(value, min) < 0)
-            return min;
-
-        if( Double.compare(value, max) > 0)
-            return max;
-
-        return value;
-    }
 
 }
