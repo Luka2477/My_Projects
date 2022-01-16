@@ -6,14 +6,14 @@ import javafx.scene.input.ScrollEvent;
 
 public class SceneGestures {
 
-    private static final double MIN_SCALE = 0.5d;
+    private static final double MIN_SCALE = 0.1d;
 
     private DragContext sceneDragContext = new DragContext();
 
-    PannableCanvas canvas;
+    PannablePane pane;
 
-    public SceneGestures( PannableCanvas canvas) {
-        this.canvas = canvas;
+    public SceneGestures( PannablePane pane) {
+        this.pane = pane;
     }
 
     public EventHandler<MouseEvent> getOnMousePressedEventHandler() {
@@ -39,8 +39,8 @@ public class SceneGestures {
             sceneDragContext.mouseAnchorX = event.getSceneX();
             sceneDragContext.mouseAnchorY = event.getSceneY();
 
-            sceneDragContext.translateAnchorX = canvas.getTranslateX();
-            sceneDragContext.translateAnchorY = canvas.getTranslateY();
+            sceneDragContext.translateAnchorX = pane.getTranslateX();
+            sceneDragContext.translateAnchorY = pane.getTranslateY();
 
         }
 
@@ -53,8 +53,8 @@ public class SceneGestures {
             if (!event.isPrimaryButtonDown())
                 return;
 
-            canvas.setTranslateX(sceneDragContext.translateAnchorX + event.getSceneX() - sceneDragContext.mouseAnchorX);
-            canvas.setTranslateY(sceneDragContext.translateAnchorY + event.getSceneY() - sceneDragContext.mouseAnchorY);
+            pane.setTranslateX(sceneDragContext.translateAnchorX + event.getSceneX() - sceneDragContext.mouseAnchorX);
+            pane.setTranslateY(sceneDragContext.translateAnchorY + event.getSceneY() - sceneDragContext.mouseAnchorY);
 
             event.consume();
         }
@@ -70,7 +70,7 @@ public class SceneGestures {
 
             double delta = 1.2;
 
-            double scale = canvas.getScale(); // currently we only use Y, same value is used for X
+            double scale = pane.getScale(); // currently we only use Y, same value is used for X
             double oldScale = scale;
 
             if (event.getDeltaY() < 0)
@@ -84,13 +84,13 @@ public class SceneGestures {
 
             double f = (scale / oldScale) - 1;
 
-            double dx = (event.getSceneX() - (canvas.getBoundsInParent().getWidth() / 2 + canvas.getBoundsInParent().getMinX()));
-            double dy = (event.getSceneY() - (canvas.getBoundsInParent().getHeight() / 2 + canvas.getBoundsInParent().getMinY()));
+            double dx = (event.getSceneX() - (pane.getBoundsInParent().getWidth() / 2 + pane.getBoundsInParent().getMinX()));
+            double dy = (event.getSceneY() - (pane.getBoundsInParent().getHeight() / 2 + pane.getBoundsInParent().getMinY()));
 
-            canvas.setScale(scale);
+            pane.setScale(scale);
 
             // note: pivot value must be untransformed, i. e. without scaling
-            canvas.setPivot(f * dx, f * dy);
+            pane.setPivot(f * dx, f * dy);
 
             event.consume();
 

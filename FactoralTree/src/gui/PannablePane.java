@@ -7,11 +7,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-public class PannableCanvas extends Pane {
+public class PannablePane extends Pane {
 
     DoubleProperty myScale = new SimpleDoubleProperty(1.0);
 
-    public PannableCanvas() {
+    public PannablePane() {
         // add scale transform
         scaleXProperty().bind(myScale);
         scaleYProperty().bind(myScale);

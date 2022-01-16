@@ -1,11 +1,12 @@
 package gui;
 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.shape.Line;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.Scanner;
@@ -16,18 +17,25 @@ public class GUI extends Application {
 
     @Override
     public void start (Stage stage) {
-        this.width = 600;
-        this.height = 600;
+        this.width = 4800;
+        this.height = 4800;
 
         stage.setTitle("Factorial Tree");
-        PannableCanvas canvas = new PannableCanvas();
-        canvas.setPrefSize(this.width, this.height);
+        PannablePane pane = new PannablePane();
+        pane.setMaxSize(this.width / 6, this.height / 6);
 
-        this.initTree(canvas);
+        Canvas canvas = new Canvas();
+        canvas.setWidth(this.width);
+        canvas.setHeight(this.height);
+        canvas.layoutXProperty().set(-this.width / 2 + this.width / 12);
+        canvas.layoutYProperty().set(-this.height + this.height / 6);
+        pane.getChildren().add(canvas);
 
-        Scene scene = new Scene(canvas);
+        this.initTree(canvas.getGraphicsContext2D());
 
-        SceneGestures sceneGestures = new SceneGestures(canvas);
+        Scene scene = new Scene(pane);
+
+        SceneGestures sceneGestures = new SceneGestures(pane);
         scene.addEventFilter( MouseEvent.MOUSE_PRESSED, sceneGestures.getOnMousePressedEventHandler());
         scene.addEventFilter( MouseEvent.MOUSE_DRAGGED, sceneGestures.getOnMouseDraggedEventHandler());
         scene.addEventFilter( ScrollEvent.ANY, sceneGestures.getOnScrollEventHandler());
@@ -36,7 +44,7 @@ public class GUI extends Application {
         stage.show();
     }
 
-    private void initTree (PannableCanvas canvas) {
+    private void initTree (GraphicsContext context) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("How many iterations (int): ");
@@ -60,19 +68,16 @@ public class GUI extends Application {
             this.anglePlay = Math.toRadians(Double.parseDouble(scanner.nextLine()));
         }
 
-        Group group = new Group();
-        this.makeBranch(group, this.width / 2, this.height, stemWidth, stemLength, Math.PI / 2, iterations);
-
-        canvas.getChildren().add(group);
+        context.setStroke(Color.BLACK);
+        this.makeBranch(context, this.width / 2, this.height, stemWidth, stemLength, Math.PI / 2, iterations);
     }
 
-    private void makeBranch (Group group, double x, double y, double branchWidth, double branchLength, double angle, int iterationsLeft) {
+    private void makeBranch (GraphicsContext context, double x, double y, double branchWidth, double branchLength, double angle, int iterationsLeft) {
         double newX = x - Math.cos(angle) * branchLength;
         double newY = y - Math.sin(angle) * branchLength;
 
-        Line branch = new Line(x, y, newX, newY);
-        branch.setStrokeWidth(branchWidth);
-        group.getChildren().add(branch);
+        context.setLineWidth(branchWidth);
+        context.strokeLine(x, y, newX, newY);
 
         if (iterationsLeft > 0) {
             double newBranchLength = branchLength * (1 - this.lengthDec);
@@ -80,8 +85,8 @@ public class GUI extends Application {
             double newAngleLeft = angle - (this.angleDec + (Math.random() - .5) * this.anglePlay * 2);
             double newAngleRight = angle + (this.angleDec + (Math.random() - .5) * this.anglePlay * 2);
 
-            makeBranch(group, newX, newY, newBranchWidth, newBranchLength, newAngleLeft, iterationsLeft - 1);
-            makeBranch(group, newX, newY, newBranchWidth, newBranchLength, newAngleRight, iterationsLeft - 1);
+            makeBranch(context, newX, newY, newBranchWidth, newBranchLength, newAngleLeft, iterationsLeft - 1);
+            makeBranch(context, newX, newY, newBranchWidth, newBranchLength, newAngleRight, iterationsLeft - 1);
         }
     }
 
