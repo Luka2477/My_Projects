@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ApproximatingPI/ApproximatingPI.iml" filepath="$PROJECT_DIR$/ApproximatingPI/ApproximatingPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/FactoralTree/FactoralTree.iml" filepath="$PROJECT_DIR$/FactoralTree/FactoralTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/My_Projects.iml" filepath="$PROJECT_DIR$/.idea/My_Projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QuadTree/QuadTree.iml" filepath="$PROJECT_DIR$/QuadTree/QuadTree.iml" />
     </modules>
   </component>
 </project>
