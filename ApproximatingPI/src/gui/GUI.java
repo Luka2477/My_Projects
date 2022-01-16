@@ -4,15 +4,12 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -29,24 +26,31 @@ public class GUI extends Application {
 
         stage.setTitle("Approximating PI");
         Pane pane = new Pane();
-        pane.setPrefSize(this.width, this.height);
 
-        this.initContent(pane);
+        Canvas canvas = new Canvas();
+        canvas.setWidth(this.width);
+        canvas.setHeight(this.height);
+        pane.getChildren().add(canvas);
+
+        this.initContent(canvas.getGraphicsContext2D());
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
     }
 
-    private void initContent (Pane pane) {
+    private void initContent (GraphicsContext context) {
         Point2D boundCoords = new Point2D(this.width / 12, this.height / 24 + this.height / 12);
         Point2D boundSize = new Point2D(this.width / 12 * 10, this.height / 24 * 20);
         Point2D center = new Point2D(this.width / 2, this.height / 24 + this.height / 2);
         double radius = this.width / 12 * 5;
         double pointRadius = this.width / 500;
         CountContext count = new CountContext();
-        Group group = new Group();
-        pane.getChildren().add(group);
+
+        // Initialize drawing
+        context.setLineWidth(pointRadius);
+        context.setStroke(Color.WHITE);
+        context.setFont(new Font(this.width / 24));
 
         // Ask for input
         Scanner scanner = new Scanner(System.in);
@@ -58,31 +62,14 @@ public class GUI extends Application {
         double delay = Double.parseDouble(scanner.nextLine());
 
         // Create background
-        Rectangle background = new Rectangle(0, 0, this.width, this.height);
-        group.getChildren().add(background);
+        context.setFill(Color.BLACK);
+        context.fillRect(0, 0, this.width, this.height);
 
         // Create bounding box
-        Rectangle bound = new Rectangle(boundCoords.getX(), boundCoords.getY(), boundSize.getX(), boundSize.getY());
-        bound.setFill(Color.TRANSPARENT);
-        bound.setStroke(Color.WHITE);
-        bound.setStrokeWidth(pointRadius);
-        group.getChildren().add(bound);
+        context.strokeRect(boundCoords.getX(), boundCoords.getY(), boundSize.getX(), boundSize.getY());
 
         // Create circle that we will use to approximate PI
-        Circle circle = new Circle(center.getX(), center.getY(), radius);
-        circle.setFill(Color.TRANSPARENT);
-        circle.setStroke(Color.WHITE);
-        circle.setStrokeWidth(pointRadius);
-        group.getChildren().add(circle);
-
-        // Text to show approximation
-        Text approximation = new Text();
-        approximation.setTextAlignment(TextAlignment.CENTER);
-        approximation.setX(this.width / 12);
-        approximation.setY(this.height / 12);
-        approximation.setFont(new Font(this.width / 24));
-        approximation.setFill(Color.WHITE);
-        group.getChildren().add(approximation);
+        context.strokeOval(center.getX() - radius, center.getY() - radius, radius * 2, radius * 2);
 
         // Create Timeline
         Timeline timeline = new Timeline();
@@ -93,19 +80,21 @@ public class GUI extends Application {
                 Point2D pointCoords = new Point2D(
                         boundCoords.getX() + Math.random() * boundSize.getX(),
                         boundCoords.getY() + Math.random() * boundSize.getY());
-                Circle point = new Circle(pointCoords.getX(), pointCoords.getY(), pointRadius);
 
-                if (center.distance(pointCoords.getX(), pointCoords.getY()) <= radius) {
-                    point.setFill(Color.DARKRED);
+                if (center.distance(pointCoords) <= radius) {
+                    context.setFill(Color.DARKRED);
                     count.addX(1);
                 } else {
-                    point.setFill(Color.DARKBLUE);
+                    context.setFill(Color.DARKBLUE);
                 }
+
+                context.fillOval(pointCoords.getX() - pointRadius, pointCoords.getY() - pointRadius, pointRadius * 2, pointRadius * 2);
                 count.addY(1);
 
-                group.getChildren().add(point);
-
-                approximation.setText(String.format("PI is approximately %.15f", 4 * count.getX() / count.getY()));
+                context.setFill(Color.BLACK);
+                context.fillRect(boundCoords.getX(), 0, boundSize.getX(), boundCoords.getY() - pointRadius);
+                context.setFill(Color.WHITE);
+                context.fillText(String.format("PI is approximately %.15f", 4 * count.getX() / count.getY()), this.width / 12, this.height / 12);
             }));
         }
 
