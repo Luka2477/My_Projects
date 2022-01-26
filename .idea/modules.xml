@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/FactoralTree/FactoralTree.iml" filepath="$PROJECT_DIR$/FactoralTree/FactoralTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/My_Projects.iml" filepath="$PROJECT_DIR$/.idea/My_Projects.iml" />
       <module fileurl="file://$PROJECT_DIR$/QuadTree/QuadTree.iml" filepath="$PROJECT_DIR$/QuadTree/QuadTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SudokuSolver/SudokuSolver.iml" filepath="$PROJECT_DIR$/SudokuSolver/SudokuSolver.iml" />
     </modules>
   </component>
 </project>
